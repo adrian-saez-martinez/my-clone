@@ -24,7 +24,7 @@ def get_retrieval_chain(db_path):
     vectorstore = Chroma(persist_directory=db_path, embedding_function=embeddings)
 
     # Set up retriever
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 1})  # Retrieve top 5 matches
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 2})  # Retrieve top 5 matches
 
     # Initialize Hugging Face model via HuggingFaceEndpoint
     llm = HuggingFaceEndpoint(
@@ -57,7 +57,8 @@ def retrieve_resume_data(query, db_path):
         None
     """
     retrieval_chain = get_retrieval_chain(db_path)
-    result = retrieval_chain(query)
+    result = retrieval_chain.invoke(query)
+
 
     # Display answer and source documents
     print("\nAnswer:\n", result.get("result"))
