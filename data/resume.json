@@ -1,0 +1,51 @@
+[
+    {
+      "role": "R&D Engineer",
+      "company": "Centro Tecnológico de la Construcción (CTCON)",
+      "dates": "July 2023 - Present",
+      "description": "Researched and developed innovative solutions in the Digital Construction area."
+    },
+    {
+      "role": "Agile Coach",
+      "company": "Indra",
+      "dates": "December 2022 - February 2023",
+      "description": "Provided Agile coaching to teams, improving team performance and supporting health initiatives."
+    },
+    {
+      "role": "Professional Break",
+      "company": "None",
+      "dates": "February 2021 - November 2022",
+      "description": "Focused on personal development and enhancing technical skills during this time."
+    },
+    {
+      "role": "Delivery Lead",
+      "company": "Minderest",
+      "dates": "September 2019 - January 2021",
+      "description": "Led the team responsible for delivering end-to-end products to new customers. Managed the Sprint Backlog, conducted regular meetings with Customer Care and Development teams, and implemented UX improvements."
+    },
+    {
+      "role": "Support and Delivery Engineer",
+      "company": "Minderest",
+      "dates": "December 2017 - September 2019",
+      "description": "Configured and delivered end-to-end products for new customers, provided customer service and troubleshooting, and monitored pricing through web scraping."
+    },
+    {
+      "role": "BI Developer",
+      "company": "everis",
+      "dates": "January 2017 - December 2017",
+      "description": "Trained customers and employees on Microsoft Power BI. Delivered business intelligence solutions for relational databases using SQL and Power BI."
+    },
+    {
+      "role": "Researcher",
+      "company": "Universidad Politécnica de Cartagena (UPCT)",
+      "dates": "November 2015 - January 2017",
+      "description": "Organized and managed the 3GCMEA international congress, delivered technical speeches in English, and managed finances as treasurer. Analyzed and designed microwave cavities as a consultant for international companies."
+    },
+    {
+      "role": "Mobile Engineer",
+      "company": "Intelia Design & Development",
+      "dates": "June 2013 - November 2013",
+      "description": "Developed front-end applications using HTML5, JavaScript, and CSS3. Managed relational databases to support project development."
+    }
+  ]
+  

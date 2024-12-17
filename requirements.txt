@@ -1,5 +1,8 @@
+transformers
 streamlit
+huggingface_hub
 langchain
-langchain-community
-langchainhub
-python-dotenv
+langchain_community
+langchain_huggingface
+langchain_core
+langchain_chroma
