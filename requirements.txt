@@ -6,3 +6,4 @@ langchain_community
 langchain_huggingface
 langchain_core
 langchain_chroma
+langchain-huggingface
