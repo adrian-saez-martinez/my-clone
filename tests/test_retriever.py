@@ -24,7 +24,7 @@ def get_retrieval_chain(db_path):
     vectorstore = Chroma(persist_directory=db_path, embedding_function=embeddings)
 
     # Set up retriever
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 2})  # Retrieve top 5 matches
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
     # Initialize Hugging Face model via HuggingFaceEndpoint
     llm = HuggingFaceEndpoint(
@@ -56,6 +56,7 @@ def retrieve_resume_data(query, db_path):
     Returns:
         None
     """
+    print(query)
     retrieval_chain = get_retrieval_chain(db_path)
     result = retrieval_chain.invoke(query)
 
@@ -70,6 +71,6 @@ def retrieve_resume_data(query, db_path):
 
 # Example Usage
 if __name__ == "__main__":
-    db_path = "./db/professional_experience_db/"  # Path to your Chroma database
+    db_path = "./chroma_databases/resume_db/"
     query = "Tell me about your role at CTCON."
     retrieve_resume_data(query, db_path)
