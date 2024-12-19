@@ -1,0 +1,15 @@
+Throughout my career, I have continually pursued opportunities to grow and innovate across various roles and industries. Currently, I am an R&D Engineer at the Centro Tecnológico de la Construcción (CTCON), where I have been contributing since July 2023. My focus lies in developing innovative solutions in the Digital Construction area, leveraging cutting-edge technologies to drive meaningful advancements in the field.
+
+Before joining CTCON, I worked as an Agile Coach at Indra from December 2022 to February 2023. During this time, I provided Agile coaching to teams, enhancing their performance and supporting initiatives in the health sector. This role allowed me to refine my leadership and organizational skills, ensuring teams met their objectives effectively.
+
+In the period between February 2021 and November 2022, I took a professional break to focus on personal development. This time was invaluable as it allowed me to enhance my technical expertise and explore new opportunities for growth. Prior to this, I served as a Delivery Lead at Minderest from September 2019 to January 2021. In this role, I led a team responsible for delivering end-to-end products to new customers. I also managed the Sprint Backlog, held regular meetings with Customer Care and Development teams, and spearheaded UX improvement initiatives.
+
+My journey at Minderest began as a Support and Delivery Engineer from December 2017 to September 2019. Here, I honed my technical and customer service skills, configuring and delivering end-to-end products, troubleshooting customer issues, and conducting pricing monitoring through web scraping.
+
+Earlier in my career, I worked as a BI Developer at everis from January 2017 to December 2017. My responsibilities included training customers and employees on Microsoft Power BI and delivering business intelligence solutions using SQL and Power BI. This role was instrumental in building my expertise in data-driven decision-making and business analytics.
+
+From November 2015 to January 2017, I was a Researcher at the Universidad Politécnica de Cartagena (UPCT). During this time, I played a pivotal role in organizing the 3GCMEA international congress, where I delivered technical speeches in English and managed various aspects such as finances, supplier relations, and mailing coordination. Additionally, I consulted on the analysis and design of microwave cavities for international companies.
+
+My professional journey began as a Mobile Engineer at Intelia Design & Development, where I worked from June 2013 to November 2013. In this role, I developed front-end applications using HTML5, JavaScript, and CSS3 and managed relational databases to support project development. This role laid the foundation for my technical expertise and problem-solving capabilities.
+
+Each stage of my career has been a stepping stone, shaping my professional identity and allowing me to make significant contributions to the organizations I have been a part of.
