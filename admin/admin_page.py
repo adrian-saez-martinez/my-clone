@@ -9,7 +9,7 @@ HF_TOKEN = st.secrets["HF_TOKEN"]
 WHISPER_HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
 
 def query_whisper(audio_bytes):
-    """Send audio data to Hugging Face Whisper API for transcription."""
+    """Send audio data to Hugging Face whisper API for transcription."""
     response = requests.post(WHISPER_API_URL, headers=WHISPER_HEADERS, data=audio_bytes)
     if response.status_code == 200:
         return response.json()
