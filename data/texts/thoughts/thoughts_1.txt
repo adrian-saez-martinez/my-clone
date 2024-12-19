@@ -6,8 +6,6 @@ I am particularly intrigued by Retrieval-Augmented Generation (RAG) systems, whi
 
 One of the projects I found fascinating was creating a system that fine-tunes open-source models to specialize in construction sector vocabulary. Ensuring that AI understands technical and domain-specific terms not only enhances productivity but also tailors solutions to industry needs. This aligns with my belief that fine-tuning and domain adaptation can bring AI closer to solving real-world problems effectively.
 
-Another area I am passionate about is developing tools to assist people with communication disorders, such as aphasia. I believe that conversational AI could be adapted to help individuals overcome barriers in expressing themselves, creating inclusive tools that adapt to the specific needs of their users.
-
 On the broader implications of AI, I believe the ethical deployment of these technologies is paramount. While large language models (LLMs) like ChatGPT are remarkable in their generative capabilities, ensuring that they are used responsibly and without harm is a key challenge for the AI community. Bias mitigation, interpretability, and transparency are topics that I find critical to address as we continue to integrate AI into sensitive and impactful domains.
 
 Finally, I find the integration of speech-to-text systems, such as Whisper, and their adaptability to regional accents particularly exciting. Fine-tuning such systems, like Whisper, for specific languages and accents (e.g., Spanish with regional variations), demonstrates how AI can respect and adapt to cultural diversity while solving practical problems.
