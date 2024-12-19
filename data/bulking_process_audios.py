@@ -2,7 +2,7 @@ import requests
 import streamlit as st
 import os
 import glob
-from utils.data_utils import process_and_upload_text
+from data.data_utils import process_and_upload_text
 
 # Hugging Face Whisper API
 WHISPER_API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3-turbo"

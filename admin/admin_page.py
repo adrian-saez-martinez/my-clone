@@ -1,7 +1,7 @@
 import streamlit as st
 import datetime
 import requests
-from utils.data_utils import process_and_upload_text
+from data.data_utils import process_and_upload_text
 
 # Hugging Face Whisper API configuration
 WHISPER_API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3-turbo"

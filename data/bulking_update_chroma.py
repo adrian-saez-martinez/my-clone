@@ -1,5 +1,6 @@
 import os
-from utils.data_utils import process_and_upload_text
+print("Current Working Directory:", os.getcwd())
+from data_utils import process_and_upload_text
 
 def bulk_update_chroma(data_folder, db_root, topics):
     """

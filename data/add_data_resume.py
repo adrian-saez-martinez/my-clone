@@ -1,4 +1,4 @@
-from utils.data_utils import upload_resume
+from data.data_utils import upload_resume
 import os
 
 # Upload resume.json
