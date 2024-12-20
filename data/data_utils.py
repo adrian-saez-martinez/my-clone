@@ -19,6 +19,10 @@ def process_and_upload_text(file_path, db_path):
 
     # Embed and upload to Chroma
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectorstore = Chroma(persist_directory=db_path, embedding_function=embeddings)
+    vectorstore = Chroma(
+        persist_directory=db_path,
+        embedding_function=embeddings,
+        collection_metadata={"hnsw:space": "cosine"},
+    )    
     vectorstore.add_documents(documents)
     print(f"Data from {file_path} uploaded successfully to {db_path}")

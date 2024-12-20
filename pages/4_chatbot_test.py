@@ -13,55 +13,93 @@ from langchain.chains import LLMChain
 # Constants for environment and database
 LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
 HF_TOKEN = st.secrets["HF_TOKEN"]
-DB_PATH = "./chroma_databases/allinfo_db"
+DB_PATH = "./chroma_databases/allinfo_db"  # Unified Chroma database path
 
 # Define retrieval function
-def retrieve_documents(query):
+def retrieve_documents(query, similarity_score_threshold=None):
     """
-    Retrieve documents relevant to the query.
+    Retrieve documents relevant to the query along with their similarity scores.
+    Optionally filter documents based on a similarity score threshold.
 
     Args:
         query (str): The user's query.
+        similarity_score_threshold (float, optional): Minimum similarity score to include a document.
 
     Returns:
-        list: Retrieved documents.
+        list of tuples: Each tuple contains a Document and its similarity score.
     """
+    
+    # Initialize embeddings and vectorstore
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
-    return retriever.get_relevant_documents(query)
+
+    # Perform similarity search with scores
+    docs_and_scores = vectorstore.similarity_search_with_score(query, k=3)
+
+    # Filter results by similarity score threshold if provided
+    if similarity_score_threshold is not None:
+        docs_and_scores = [
+            (doc, score) for doc, score in docs_and_scores
+            if score <= similarity_score_threshold  # Lower scores are more similar
+        ]
+
+    return docs_and_scores
+
 
 # Define the LLM chain with a custom prompt
-def generate_answer(documents, query):
+def generate_answer(docs_and_scores, query):
     """
-    Generate an answer based on retrieved documents, the user's query, and custom prompt instructions.
+    Generate an answer based on retrieved documents, their similarity scores, the user's query, and custom prompt instructions.
 
     Args:
-        documents (list): Retrieved documents.
+        docs_and_scores (list): List of tuples (Document, similarity score).
         query (str): The user's query.
 
     Returns:
         str: Generated answer.
     """
-    # Check if documents are retrieved
-    if documents:
-        # Format retrieved documents into a readable string
-        context = "\n\n".join([f"{doc.page_content}" for doc in documents])
+    if docs_and_scores:
+        # Prepare the context by including similarity scores
+        debug_context = ""
+        context = ""
+        for doc, score in docs_and_scores:
+            # Context for debugging/logging
+            debug_context += f"Document (Similarity Score: {score:.4f}):\n{doc.page_content}\n\n"
 
+            # Clean context for the LLM
+            context += f"{doc.page_content}\n\n"
         # Define the custom prompt
         system_message = """
-                You are an AI assistant with extensive knowledge about Adrián's professional experience, personal interests, and thoughts.
-                Use the provided context and the user's query to answer as accurately as possible. Be concise and provide relevant details.
-                """
-        user_message = "Question: {query}\n\nRetrieved Context:\n{context}"
+                You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
+
+                - Directly address the question.
+                - Well-structured and easy to read.
+                - Always start the conversation with "Adrián". For example: "Adrián is currently working as...", "Adrián enjoys...", "The role of Adrián at..."
+                - Always respond in a conversational and professional tone, as if you were Adrián speaking about his experiences or thoughts.
+                - Summarize the context concisely and naturally, blending it into the response.
+                - If no relevant context is found, acknowledge it honestly.
+                - Focus on giving precise, engaging, and human-like answers to ensure the response feels natural and directly addresses the question.
+                - Based only on the given context.
+                - Do not include "Assistant:" or similar in your response.
+        """
+        user_message = "Question: {query}\n\nContext:\n{context}"
 
     else:
-        # Generic prompt if no documents are retrieved
-        context = "No relevant information found about that."
+        # Generic response when no documents are retrieved
+        context = "No relevant information found in the database."
         system_message = """
-                You are an AI assistant answering questions about Adrián. Unfortunately, no relevant information was retrieved from the database.
-                Answer the user's query as best as possible based on general context.
-                """
+                You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
+
+                - Directly address the question.
+                - Well-structured and easy to read.
+                - Always start the conversation with "Adrián". For example: "Adrián is currently working as...", "Adrián enjoys...", "The role of Adrián at..."
+                - Always respond in a conversational and professional tone, as if you were Adrián speaking about his experiences or thoughts.
+                - Summarize the context concisely and naturally, blending it into the response.
+                - If no relevant context is found, acknowledge it honestly.
+                - Focus on giving precise, engaging, and human-like answers to ensure the response feels natural and directly addresses the question.
+                - Based only on the given context.
+                - Do not include "Assistant:" or similar in your response.
+        """
         user_message = "Question: {query}\n\nContext:\n{context}"
 
     # Create prompt templates
@@ -96,22 +134,25 @@ if st.button("Search"):
         # Retrieve documents and generate an answer
         with st.spinner("Retrieving information..."):
             try:
-                documents = retrieve_documents(query)
+                docs_and_scores = retrieve_documents(query,0.7)
 
                 # Generate the answer based on documents or a generic prompt
-                answer = generate_answer(documents, query)
+                answer = generate_answer(docs_and_scores, query)
 
                 # Display the answer
                 st.write("### Answer:")
                 st.write(answer)
 
-                # Display the related documents if any
-                if documents:
+                # Display the related documents with similarity scores
+                if docs_and_scores:
                     st.write("### Related Documents:")
-                    for doc in documents:
+                    for doc, score in docs_and_scores:
+                        st.write(f"**Similarity Score:** {score:.4f}")
                         st.write(f"**Content:** {doc.page_content}")
                         st.write(f"**Metadata:** {doc.metadata}")
                         st.write("---")
+                else:
+                    st.warning("No relevant documents found.")
             except Exception as e:
                 st.error(f"An error occurred: {e}")
     else:
