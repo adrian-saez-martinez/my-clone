@@ -126,12 +126,12 @@ def generate_answer(docs_and_scores, query):
     return chain.run(inputs)
 
 # Streamlit Interface
-st.subheader("Ask me anything about Adrián")
+st.markdown("### Ask me anything about Adrián")
 
 # User input for query
 query = st.text_input("Type your question:")
 
-if st.button("Search"):
+if st.button("Ask"):
     if query:
         # Retrieve documents and generate an answer
         with st.spinner("Retrieving information..."):
@@ -154,7 +154,7 @@ if st.button("Search"):
                             st.write(f"**Metadata:** {doc.metadata}")
                             st.write("---")
                     else:
-                        st.warning("No relevant documents found.")
+                        st.warning("No relevant information found.")
 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
