@@ -1,5 +1,5 @@
 transformers
-sqlite-database
+chromadb
 streamlit
 huggingface_hub
 langchain
