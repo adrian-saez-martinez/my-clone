@@ -7,4 +7,3 @@ langchain-huggingface
 langchain-core
 langchain-chroma
 langchain-huggingface
-pysqlite3-binary

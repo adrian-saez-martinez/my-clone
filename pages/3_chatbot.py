@@ -8,10 +8,6 @@ from langchain.prompts import (
     HumanMessagePromptTemplate,
 )
 from langchain.chains import LLMChain
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 
 # Constants for environment and database
 LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
