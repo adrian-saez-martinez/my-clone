@@ -9,3 +9,4 @@ langchain-core
 langchain-chroma
 langchain-huggingface
 graphviz
+langgraph>0.2.27

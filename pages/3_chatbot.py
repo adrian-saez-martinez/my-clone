@@ -89,7 +89,7 @@ def generate_answer(docs_and_scores, query):
 
     else:
         # Generic response when no documents are retrieved
-        context = "No relevant information found in the database."
+        context = "No relevant information found."
         system_message = """
             You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
 
