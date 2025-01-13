@@ -15,3 +15,43 @@ From November 2015 to January 2017, I was a Researcher at the Universidad Polit�
 My professional journey began as a Mobile Engineer at Intelia Design & Development, where I worked from June 2013 to November 2013. In this role, I developed front-end applications using HTML5, JavaScript, and CSS3 and managed relational databases to support project development. This role laid the foundation for my technical expertise and problem-solving capabilities.
 
 Each stage of my career has been a stepping stone, shaping my professional identity and allowing me to make significant contributions to the organizations I have been a part of.
+
+Adrián currently serves as an R&D Engineer at the Centro Tecnológico de la Construcción (CTCON). Since July 2023, his work at CTCON has focused on developing innovative solutions in Digital Construction, utilizing advanced technologies to drive efficiency and progress in the construction sector. His contributions aim to align technological advancements with practical applications in construction processes.
+
+At Indra, Adrián worked as an Agile Coach from December 2022 to February 2023. During his time at Indra, he significantly enhanced team performance by implementing Agile practices and methodologies. His role involved coaching teams, fostering collaboration, and supporting key initiatives in the health sector, ensuring effective team alignment with organizational objectives.
+
+During his tenure at Minderest, Adrián held the role of Delivery Lead from September 2019 to January 2021. At Minderest, he was responsible for overseeing the delivery of end-to-end products to customers while managing the Sprint Backlog and coordinating with Customer Care and Development teams. His leadership extended to spearheading UX improvements that optimized the overall user experience.
+
+Before becoming a Delivery Lead, Adrián worked at Minderest as a Support and Delivery Engineer from December 2017 to September 2019. In this role at Minderest, he configured and delivered comprehensive product solutions, resolved customer issues, and implemented pricing monitoring through web scraping. His technical expertise and customer-oriented approach were key to the role's success.
+
+While working as a BI Developer at everis from January 2017 to December 2017, Adrián specialized in delivering business intelligence solutions using SQL and Power BI. At everis, he also trained employees and customers on Microsoft Power BI, enabling them to enhance decision-making processes through data-driven insights.
+
+Adrián’s research career at the Universidad Politécnica de Cartagena (UPCT) spanned from November 2015 to January 2017. At UPCT, he played a pivotal role in organizing the 3GCMEA international congress. His responsibilities included delivering technical speeches in English, managing finances and supplier relations, and consulting on the design of microwave cavities for international companies.
+
+At Intelia Design & Development, Adrián began his professional career as a Mobile Engineer from June 2013 to November 2013. His role at Intelia involved developing front-end applications using HTML5, JavaScript, and CSS3, as well as managing relational databases to support project requirements. These experiences laid the foundation for his technical expertise.
+
+Between February 2021 and November 2022, Adrián took a professional break to focus on personal development. During this time, he refined his technical skills and explored new opportunities for growth. This period of personal investment allowed him to enhance his abilities and set a strong foundation for future professional achievements.
+
+At CTCON, Adrián actively engages in projects that integrate cutting-edge technologies with practical applications in the construction industry. His contributions at CTCON reflect his commitment to driving innovation and solving complex challenges in the field of Digital Construction.
+
+Adrián’s time at Indra was marked by his ability to improve team performance through structured coaching and effective communication. At Indra, he fostered an environment of collaboration and continuous improvement, ensuring teams met their goals efficiently and effectively.
+
+Adrián's expertise in integrating advanced technologies into real-world solutions is evident from his work as an R&D Engineer at the Centro Tecnológico de la Construcción (CTCON). At CTCON, he has been focused on developing innovative solutions in Digital Construction, leveraging cutting-edge technologies that include elements of artificial intelligence to enhance construction efficiency and sustainability.
+
+As a Delivery Lead at Minderest, Adrián demonstrated his ability to lead cross-functional teams by managing end-to-end product deliveries. He played a crucial role in ensuring seamless collaboration between Customer Care and Development teams, spearheading UX improvement initiatives, and implementing solutions that optimized the pricing monitoring process. This experience aligns well with the requirements of tech-related leadership roles in AI-focused companies.
+
+During his tenure as a Support and Delivery Engineer at Minderest, Adrián honed his technical skills by configuring and delivering end-to-end products. He also utilized web scraping techniques for pricing monitoring, demonstrating his capability to work with data-driven methodologies—a foundational aspect of AI and machine learning.
+
+As a BI Developer at everis, Adrián worked extensively with data analytics tools like SQL and Power BI, enabling data-driven decision-making for clients. He also trained employees and customers on Microsoft Power BI, showcasing his ability to transfer technical knowledge and support the adoption of data-centric solutions in organizations.
+
+Adrián’s experience as a Researcher at the Universidad Politécnica de Cartagena (UPCT) also speaks to his ability to work on analytical and technical projects. At UPCT, he provided consultation for the analysis and design of microwave cavities for international companies, a role that required precision, problem-solving, and collaboration.
+
+At CTCON, Adrián has been extensively involved in exploring the potential of large language models (LLMs) and their applications in the construction sector. His work revolves around leveraging advanced NLP technologies to enhance efficiency, optimize workflows, and create AI-driven tools that simplify complex processes in various domains.
+
+Adrián's proficiency with LangChain has allowed him to build sophisticated solutions for integrating LLMs into practical applications. He has developed robust pipelines that connect natural language understanding with real-world tasks, ensuring seamless interactions between AI systems and domain-specific data. His ability to adapt these tools to unique challenges underscores his versatility in working with emerging technologies.
+
+With hands-on experience in vector databases like Chroma, Adrián has contributed to optimizing retrieval-augmented generation (RAG) systems. By combining efficient data retrieval mechanisms with LLM-powered analysis, he has created solutions that deliver precise and context-aware responses. His expertise in this area demonstrates his commitment to utilizing cutting-edge technologies to address practical needs.
+
+Adrián has worked on various personal projects involving LLMs, NLP, and Generative AI. From developing AI-powered chatbots to enhancing document management systems, his projects reflect his deep understanding of how to integrate AI tools effectively. For instance, this very chatbot serves as an example of his ability to combine LLMs, LangChain, and Chroma into a cohesive and functional solution.
+
+Adrián's continuous exploration of NLP technologies and LLM frameworks, including Hugging Face and custom fine-tuning techniques, highlights his dedication to staying ahead in the rapidly evolving AI landscape. His work exemplifies a blend of technical proficiency and innovation, making him a valuable contributor to projects that demand cutting-edge AI solutions.

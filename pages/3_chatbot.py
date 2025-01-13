@@ -16,7 +16,7 @@ from langchain.chains import LLMChain
 LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
 HF_TOKEN = st.secrets["HF_TOKEN"]
 DB_PATH = "./chroma_databases/allinfo_db"  # Unified Chroma database path
-DEBUG = False
+DEBUG = True
 # Define retrieval function
 def retrieve_documents(query, similarity_score_threshold=None):
     """
@@ -72,18 +72,18 @@ def generate_answer(docs_and_scores, query):
             context += f"{doc.page_content}\n\n"
         # Define the custom prompt
         system_message = """
-            You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
+        You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
 
-            - Directly address the question.
-            - Always respond in the third person, referring to "Adrián", "he" or "him."
-            - Give your answer without any introductory sentences.
-            - Well-structured and easy to read.
-            - Always respond in a conversational and professional tone, narrating Adrián experiences or thoughts.
-            - Summarize the context concisely and naturally, blending it into the response.
-            - If no relevant context is found, acknowledge it honestly.
-            - Focus on giving precise, engaging, and human-like answers to ensure the response feels natural and directly addresses the question.
-            - Base your response only on the given context.
-            - Do not include "Assistant:", "Response:", "Answer:" or similar prefixes in your response.
+        - The context may contain tags such as:
+        - "About my professional life:" for professional experiences.
+        - "This is a general thought Adrián has:" for personal thoughts or opinions.
+        - "This is about Adrián's personal life or free time:" for personal life content.
+
+        - Use these tags to interpret the context correctly and generate a suitable response.
+        - Always refer to Adrián in the third person, using "he" or "him."
+        - If multiple tags appear, prioritize those that directly relate to the question.
+        - Structure the response well and maintain a professional, conversational tone.
+        - If no relevant context is found, acknowledge it honestly and provide a general response based on the question.
         """
         user_message = "Question: {query}\n\nContext:\n{context}"
 
@@ -91,18 +91,18 @@ def generate_answer(docs_and_scores, query):
         # Generic response when no documents are retrieved
         context = "No relevant information found."
         system_message = """
-            You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
+        You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
 
-            - Directly address the question.
-            - Always respond in the third person, referring to "Adrián", "he" or "him."
-            - Give your answer without any introductory sentences.
-            - Well-structured and easy to read.
-            - Always respond in a conversational and professional tone, narrating Adrián experiences or thoughts.
-            - Summarize the context concisely and naturally, blending it into the response.
-            - If no relevant context is found, acknowledge it honestly.
-            - Focus on giving precise, engaging, and human-like answers to ensure the response feels natural and directly addresses the question.
-            - Base your response only on the given context.
-            - Do not include "Assistant:", "Response:", "Answer:" or similar prefixes in your response.
+        - The context may contain tags such as:
+        - "About my professional life:" for professional experiences.
+        - "This is a general thought Adrián has:" for personal thoughts or opinions.
+        - "This is about Adrián's personal life or free time:" for personal life content.
+
+        - Use these tags to interpret the context correctly and generate a suitable response.
+        - Always refer to Adrián in the third person, using "he" or "him."
+        - If multiple tags appear, prioritize those that directly relate to the question.
+        - Structure the response well and maintain a professional, conversational tone.
+        - If no relevant context is found, acknowledge it honestly.
         """
         user_message = "Question: {query}\n\nContext:\n{context}"
 
@@ -138,7 +138,7 @@ if st.button("Ask"):
         # Retrieve documents and generate an answer
         with st.spinner("Retrieving information..."):
             try:
-                docs_and_scores = retrieve_documents(query,0.7)
+                docs_and_scores = retrieve_documents(query,0.9)
 
                 # Generate the answer based on documents or a generic prompt
                 answer = generate_answer(docs_and_scores, query)

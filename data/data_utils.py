@@ -5,14 +5,27 @@ import streamlit as st
 
 HF_TOKEN = st.secrets["HF_TOKEN"]
 
-def process_and_upload_text(file_path, db_path):
-    """Process text file and upload to Chroma database."""
-    # Read text file
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
+def process_and_upload_text(file_path, db_path, topic_tag=None):
+    """
+    Process a text file and upload it to the Chroma database.
 
+    Args:
+        file_path (str): Path to the text file.
+        db_path (str): Path to the Chroma database.
+        topic_tag (str, optional): Tag or context to prepend to the text.
+
+    Returns:
+        None
+    """
+    with open(file_path, 'r', encoding='utf-8') as file:
+        text = file.read()
+    
     # Split text into smaller chunks
     chunks = text.split("\n\n")  # Split by paragraphs
+
+    # Prepend topic tag to each chunk
+    if topic_tag:
+        chunks = [f"{topic_tag}:{chunk}" for chunk in chunks]
 
     # Convert chunks into documents
     documents = [Document(page_content=chunk) for chunk in chunks]
