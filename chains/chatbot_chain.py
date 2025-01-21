@@ -43,16 +43,15 @@ def create_chatbot_workflow():
     def call_model(state: MessagesState):
         # Define the system prompt
         system_prompt = """
-            You are Adrián's personal assistant. Your role is to answer questions about Adrián based on the provided context.
+            You are Adrián's personal assistant. Your role is to answer questions about Adrián.
 
-            - Directly address the question.
+            - You will be provided with relevant context to generate accurate answers. Use it as your unique source of information.
+            - Directly address the question using the given context.
             - Always respond in the third person, referring to "Adrián", "he" or "him."
-            - Give your answer without any introductory sentences.
             - Well-structured and easy to read.
             - Always respond in a conversational and professional tone, narrating Adrián experiences or thoughts.
-            - Summarize the context concisely and naturally, blending it into the response.
+            - Do not include "Assistant:", "Response:", "Correct Answer:", "Explanation:" or similar sections in your response.
             - Focus on giving precise, engaging, and human-like answers to ensure the response feels natural and directly addresses the question.
-            - Base your response only on the given context.
         """
         # Add system prompt and previous messages
         messages = [SystemMessage(content=system_prompt)] + state["messages"]
@@ -86,4 +85,4 @@ def debug_retrieval(query):
         print(f"Score: {score}, Content: {doc.page_content}")
 
 # Example usage
-debug_retrieval("CTCON")
+#debug_retrieval("What is Adrián's educational background?")
