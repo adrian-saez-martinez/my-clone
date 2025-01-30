@@ -28,7 +28,7 @@ def retrieve_documents(query, similarity_score_threshold=None):
         list of tuples: Each tuple contains a Document and its similarity score.
     """
     try:
-        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
         vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
         docs_and_scores = vectorstore.similarity_search_with_score(query, k=3)
         if similarity_score_threshold is not None:

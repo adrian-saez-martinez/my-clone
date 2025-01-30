@@ -26,7 +26,7 @@ def retrieve_documents(query):
     Returns:
         list: Retrieved documents.
     """
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
     return retriever.get_relevant_documents(query)

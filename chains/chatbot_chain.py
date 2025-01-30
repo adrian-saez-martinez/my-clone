@@ -22,7 +22,7 @@ def initialize_llm():
 
 # Initialize Retrieval Chain
 def get_retrieval_chain():
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = Chroma(persist_directory="./chroma_databases/allinfo_db", embedding_function=embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 

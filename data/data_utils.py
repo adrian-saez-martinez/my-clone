@@ -31,7 +31,7 @@ def process_and_upload_text(file_path, db_path, topic_tag=None):
     documents = [Document(page_content=chunk) for chunk in chunks]
 
     # Embed and upload to Chroma
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = Chroma(
         persist_directory=db_path,
         embedding_function=embeddings,

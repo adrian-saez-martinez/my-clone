@@ -20,7 +20,7 @@ def get_allinfo_retrieval_chain(db_path):
         RetrievalQA: The retrieval-based question-answering chain.
     """
     # Initialize embeddings and vectorstore
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = Chroma(persist_directory=db_path, embedding_function=embeddings)
 
     # Set up retriever
