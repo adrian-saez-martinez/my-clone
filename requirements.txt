@@ -9,3 +9,4 @@ langchain-core==0.3.44
 langchain-openai==0.3.8
 langgraph==0.3.10
 langchain-chroma
+graphviz
