@@ -1,6 +1,10 @@
 import streamlit as st
 from langchain_core.messages import HumanMessage, AIMessage
 from chains.chatbot_chain import create_chatbot_workflow
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Initialize the chatbot workflow
 chatbot_app = create_chatbot_workflow()
