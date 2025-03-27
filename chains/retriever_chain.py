@@ -1,14 +1,18 @@
 from langchain_chroma import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_huggingface import HuggingFaceEndpoint
-import streamlit as st 
-import os
+from langchain_openai import OpenAIEmbeddings
+from langchain_core.tools import tool
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Constants for environment and database
-LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
-HF_TOKEN = st.secrets["HF_TOKEN"]
 DB_PATH = "./chroma_databases/allinfo_db"
 DEBUG = False
+
+# Initialize embeddings and vectorstore
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
 
 # Define retrieval function
 def retrieve_documents(query, similarity_score_threshold=None):
@@ -23,11 +27,6 @@ def retrieve_documents(query, similarity_score_threshold=None):
     Returns:
         list of tuples: Each tuple contains a Document and its similarity score.
     """
-    
-    # Initialize embeddings and vectorstore
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
-
     # Perform similarity search with scores
     docs_and_scores = vectorstore.similarity_search_with_score(query, k=3)
 
@@ -39,3 +38,13 @@ def retrieve_documents(query, similarity_score_threshold=None):
         ]
 
     return docs_and_scores
+
+@tool(response_format="content_and_artifact")
+def retriever(query: str):
+    """Retrieve information related to a query."""
+    retrieved_docs = vectorstore.similarity_search(query, k=2)
+    serialized = "\n\n".join(
+        (f"Source: {doc.metadata}\n" f"Content: {doc.page_content}")
+        for doc in retrieved_docs
+    )
+    return serialized, retrieved_docs
